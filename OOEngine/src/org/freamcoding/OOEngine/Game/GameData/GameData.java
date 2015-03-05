@@ -7,6 +7,10 @@ public class GameData {
 		running = true;
 	}
 	
+	public void stopGame() {
+		running = false;
+	}
+	
 	/** Get - Set pairs **/
 	
 	public boolean isRunning() {
@@ -16,4 +20,6 @@ public class GameData {
 	public void setRunning(boolean running) {
 		this.running = running;
 	}
+
+
 }
