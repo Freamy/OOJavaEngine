@@ -1,10 +1,18 @@
 package org.freamcoding.OOEngine.Game.GameData;
 
+import org.freamcoding.OOEngine.Game.Player.Player;
+import org.freamcoding.OOEngine.Game.graphics.Graphics;
+
 public class GameData {
 	private boolean running;
+	private Graphics graphics;
+	
+	public Player player;
 
 	public GameData(){
 		running = true;
+		player = new Player();
+		graphics = new Graphics();
 	}
 	
 	public void stopGame() {
@@ -21,5 +29,7 @@ public class GameData {
 		this.running = running;
 	}
 
-
+	public Graphics getGraphics() {
+		return graphics;
+	}
 }

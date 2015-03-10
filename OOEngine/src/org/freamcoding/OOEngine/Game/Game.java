@@ -1,7 +1,7 @@
 package org.freamcoding.OOEngine.Game;
 
 import org.freamcoding.OOEngine.Engine.Data.Data;
-import org.freamcoding.OOEngine.Game.Entity.Entity;
+import org.freamcoding.OOEngine.Game.Entity.Actor.*;
 import org.freamcoding.OOEngine.Game.GameData.GameData;
 import org.freamcoding.OOEngine.Game.Screen.*;
 
@@ -27,8 +27,8 @@ public class Game {
 	
 	private void gameLoop(){
 		while(gameData.isRunning()){
-			inputHandler.handleInput(new Entity());
-			screen.render(engineData);
+			inputHandler.handleInput(new Dummy(), gameData);
+			screen.render(engineData, gameData);
 		}
 	}
 }

@@ -18,7 +18,8 @@ public class InputHandler {
 		canClick = true;
 	}
 	
-	public void handleInput(Entity entity){
+	public void handleInput(Entity entity, GameData gameData){
+		this.gameData = gameData;
 		resetFlags();
 		if(canPressKeys) {
 			handleKeyboardInput(entity);
@@ -46,6 +47,10 @@ public class InputHandler {
 	}
 	
 	private void handleKeyboardInput(Entity entity){
+		escapeKeyHandler(entity);
+	}
+	
+	private void escapeKeyHandler(Entity entity){
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 			canPressKeys = false;
 			new ExitCommand().execute(gameData);
