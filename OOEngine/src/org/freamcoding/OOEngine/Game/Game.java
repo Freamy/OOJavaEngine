@@ -1,8 +1,9 @@
 package org.freamcoding.OOEngine.Game;
 
 import org.freamcoding.OOEngine.Engine.Data.Data;
-import org.freamcoding.OOEngine.Game.Entity.Actor.*;
 import org.freamcoding.OOEngine.Game.GameData.GameData;
+import org.freamcoding.OOEngine.Game.Logic.GameLogic;
+import org.freamcoding.OOEngine.Game.Logic.Logic;
 import org.freamcoding.OOEngine.Game.Screen.*;
 
 public class Game {
@@ -12,6 +13,7 @@ public class Game {
 	
 	private GameData gameData;
 	private InputHandler inputHandler;
+	private Logic logic;
 	
 	public void start(Data engineData){
 		this.engineData = engineData;
@@ -21,14 +23,15 @@ public class Game {
 	
 	private void initGameElements(){
 		screen = new GameScreen();
-		gameData = new GameData();
-		inputHandler = new InputHandler(gameData);
+		gameData = new GameData(engineData);
+		logic = new GameLogic();
+		engineData.calculateScreenParameters(gameData.getBlockSize());
+		inputHandler = new InputHandler(gameData, engineData);
 	}
 	
 	private void gameLoop(){
 		while(gameData.isRunning()){
-			inputHandler.handleInput(new Dummy(), gameData);
-			screen.render(engineData, gameData);
+			logic.iterate(engineData, gameData, screen, inputHandler);
 		}
 	}
 }

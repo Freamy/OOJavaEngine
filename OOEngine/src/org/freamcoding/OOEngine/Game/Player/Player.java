@@ -11,7 +11,9 @@ public class Player {
 	
 	public Player(){
 		playerActors = new ArrayList<Actor>();
-		playerActors.add(new Dummy());
+		playerActors.add(new Dummy(0,0));
+		playerActors.add(new Dummy(1,0));
+		playerActors.add(new Dummy(-1,0));
 	}
 	
 	/** Get - Set pairs **/
@@ -25,7 +27,7 @@ public class Player {
 	}
 	
 	public Actor getActor(int id){
-		if(id < playerActors.size() && id > 0)
+		if(id >= 0 && id < playerActors.size())
 			return playerActors.get(id);
 		else throw new IndexOutOfBoundsException();
 	}

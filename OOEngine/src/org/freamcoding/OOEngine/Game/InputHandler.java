@@ -1,5 +1,6 @@
 package org.freamcoding.OOEngine.Game;
 
+import org.freamcoding.OOEngine.Engine.Data.Data;
 import org.freamcoding.OOEngine.Game.Command.*;
 import org.freamcoding.OOEngine.Game.Entity.Entity;
 import org.freamcoding.OOEngine.Game.GameData.GameData;
@@ -11,9 +12,11 @@ public class InputHandler {
 	private boolean canClick;
 	
 	private GameData gameData;
+	private Data engineData;
 	
-	public InputHandler(GameData gameData){
+	public InputHandler(GameData gameData, Data engineData){
 		this.gameData = gameData;
+		this.engineData = engineData;
 		canPressKeys = true;
 		canClick = true;
 	}
@@ -58,6 +61,13 @@ public class InputHandler {
 	}
 	
 	private void handleMouseInput(Entity entity){
-		
+	}
+	
+	public int getMouseX(){
+		return Mouse.getX();
+	}
+	
+	public int getMouseY(){
+		return engineData.getResolution().getHeight()-Mouse.getY();
 	}
 }
