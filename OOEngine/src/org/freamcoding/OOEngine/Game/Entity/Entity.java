@@ -26,7 +26,9 @@ public abstract class Entity {
 	public Entity(int bX, int bY){
 		blockX = bX;
 		blockY = bY;
-		size = 96;
+		x = 0;
+		y = 0;
+		size = 32;
 	}
 	
 	public void tick(){
@@ -44,6 +46,11 @@ public abstract class Entity {
 		tmp[0] = blockX*size+x + cam.getCombinedX();
 		tmp[1] = blockY*size+y + cam.getCombinedY();
 		return tmp;
+	}
+	
+	
+	public void moveUp(){
+		blockY--;
 	}
 	
 	/** Get - Set pairs **/

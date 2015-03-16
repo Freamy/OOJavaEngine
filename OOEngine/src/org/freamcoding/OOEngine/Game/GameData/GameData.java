@@ -2,6 +2,8 @@ package org.freamcoding.OOEngine.Game.GameData;
 
 import java.util.ArrayList;
 
+import org.freamcoding.OOEngine.Engine.Audio.AudioPack;
+import org.freamcoding.OOEngine.Engine.Audio.AudioStore;
 import org.freamcoding.OOEngine.Engine.Camera.Camera;
 import org.freamcoding.OOEngine.Engine.Data.Data;
 import org.freamcoding.OOEngine.Game.Player.Player;
@@ -13,6 +15,8 @@ public class GameData {
 	
 	private int blockSize;
 	private Camera camera;
+	private AudioPack audioPack;
+	
 	
 	private ArrayList<Player> players;
 
@@ -21,8 +25,9 @@ public class GameData {
 		players = new ArrayList<Player>();
 		players.add(new Player());
 		graphics = new Graphics();
+		setAudioPack(new AudioPack());
 		camera = new Camera(engineData.getResolution().getWidth()/2, engineData.getResolution().getHeight()/2);
-		blockSize = 96;
+		blockSize = 32;
 	}
 	
 	public void stopGame() {
@@ -62,5 +67,13 @@ public class GameData {
 	public Player getPlayer(int id){
 		if(id >= 0 && id < players.size()) return players.get(0);
 		throw new IndexOutOfBoundsException();
+	}
+
+	public AudioPack getAudioPack() {
+		return audioPack;
+	}
+
+	public void setAudioPack(AudioPack audioPack) {
+		this.audioPack = audioPack;
 	}
 }

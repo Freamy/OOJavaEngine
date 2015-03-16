@@ -12,8 +12,6 @@ public class Player {
 	public Player(){
 		playerActors = new ArrayList<Actor>();
 		playerActors.add(new Dummy(0,0));
-		playerActors.add(new Dummy(1,0));
-		playerActors.add(new Dummy(-1,0));
 	}
 	
 	/** Get - Set pairs **/

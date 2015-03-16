@@ -48,11 +48,12 @@ public class Camera {
 	/** Get - Set pairs **/
 	
 	public float getCombinedX(){
-		return x + offsetX;
+		System.out.println(blockY+" "+y);
+		return (-(blockX*32 + x) + offsetX);
 	}
 	
 	public float getCombinedY(){
-		return y + offsetY;
+		return (-(blockY * 32 +y) + offsetY);
 	}
 
 	public int getBlockX() {

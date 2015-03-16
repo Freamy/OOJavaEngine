@@ -36,6 +36,9 @@ public abstract class Screen {
 		glTranslated(-drawX,-drawY,0);
 		
 		gameData.getGraphics().bindTexture(e);
+		//e.setY(e.getY()+1);
+		//gameData.getCamera().setLocation(e);
+	
 		drawQuad(drawX, drawY, size, size);
 		
 		glPopMatrix();

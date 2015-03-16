@@ -1,5 +1,6 @@
 package org.freamcoding.OOEngine.Game;
 
+import org.freamcoding.OOEngine.Engine.Camera.Camera;
 import org.freamcoding.OOEngine.Engine.Data.Data;
 import org.freamcoding.OOEngine.Game.Command.*;
 import org.freamcoding.OOEngine.Game.Entity.Entity;
@@ -61,6 +62,14 @@ public class InputHandler {
 	}
 	
 	private void handleMouseInput(Entity entity){
+	}
+	
+	public int getRelativeMouseX(Camera camera){
+		return (int)(getMouseX() - camera.getX());
+	}
+	
+	public int getRelativeMouseY(Camera camera){
+		return (int)(getMouseY() - camera.getY());
 	}
 	
 	public int getMouseX(){

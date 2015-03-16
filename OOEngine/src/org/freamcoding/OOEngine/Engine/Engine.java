@@ -43,15 +43,16 @@ public class Engine {
 	 * 
 	 * @return the initialized DisplayMode
 	 */
-	private DisplayMode initResolution(){
+	private DisplayMode initResolution() throws LWJGLException{
 		engineData.setFullScreen(false); // This will be read from the options file
 		boolean fullScreen = engineData.isFullScreen();
 		if(!fullScreen){
-			engineData.setResolution(new Resolution(640, 480)); // This will be read from the options file
+			engineData.setResolution(new Resolution(800, 600)); // This will be read from the options file
 			return new DisplayMode(engineData.getResolution().getWidth(), engineData.getResolution().getHeight());
 		}else{
 			DisplayMode dpm = Display.getDesktopDisplayMode();
 			engineData.setResolution(new Resolution(dpm.getWidth(), dpm.getHeight()));
+			Display.setFullscreen(true);
 			return dpm;
 		}
 	}

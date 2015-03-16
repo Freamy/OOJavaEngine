@@ -11,7 +11,9 @@ public class GameScreen extends Screen {
 		this.gameData = gameData;
 		this.engineData = engineData;
 		paintActors(engineData, gameData);
-		
+		float x = gameData.getCamera().getCombinedX();
+		float y = gameData.getCamera().getCombinedY();
+		drawQuad(x, y, 32, 32);
 	}
 	
 	protected void paintActors(Data engineData, GameData gameData){
