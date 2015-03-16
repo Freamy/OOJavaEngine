@@ -57,6 +57,7 @@ public class InputHandler {
 	private void escapeKeyHandler(Entity entity){
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 			canPressKeys = false;
+			System.out.println("<3");
 			new ExitCommand().execute(gameData);
 		}
 	}
